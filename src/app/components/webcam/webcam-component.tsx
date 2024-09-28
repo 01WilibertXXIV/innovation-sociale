@@ -3,7 +3,7 @@
 import { useRef, useEffect, useState } from 'react'
 import * as faceapi from 'face-api.js'
 
-export default function WebcamComponent() {
+export default function WebcamComponent(props: { maxFaces: number }) {
 
     const videoRef = useRef<HTMLVideoElement | null>(null);
     const [numFaces, setNumFaces] = useState<number>(0);
@@ -82,7 +82,7 @@ export default function WebcamComponent() {
         </div>
 
 
-        <div className={`text-4xl font-bold absolute h-full w-full z-[1000] flex justify-center items-center transition-all duration-200 bg-black ${numFaces >= 1 ? 'opacity-100' : 'opacity-0'}`}>
+        <div className={`text-4xl font-bold absolute h-full w-full z-[1000] flex justify-center items-center transition-all duration-200 bg-black ${numFaces >= props.maxFaces ? 'opacity-100' : 'opacity-0'}`}>
             <h1 className={`${numFaces >= 1 ? 'text-opacity-100' : 'text-opacity-0'}`}>C'est le temps d'aller parler à quelqu'un</h1>
         </div>
         
