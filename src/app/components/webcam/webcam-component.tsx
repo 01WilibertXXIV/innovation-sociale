@@ -23,8 +23,8 @@ export default function WebcamComponent() {
         if (videoRef.current) {
           videoRef.current.srcObject = stream;
         }
-      } catch (err: any) {
-        if (err.name === 'OverconstrainedError') {
+      } catch (err: unknown) {
+        if (err instanceof Error && err.name === 'OverconstrainedError') {
           console.warn('Back camera not available. Falling back to front camera.');
           // Second attempt: fall back to any available camera
           try {
@@ -83,7 +83,7 @@ export default function WebcamComponent() {
 
 
         <div className={`text-4xl font-bold absolute h-full w-full z-[1000] flex justify-center items-center transition-all duration-200 bg-black ${numFaces >= 1 ? 'bg-opacity-100' : 'bg-opacity-0'}`}>
-            <h1>C'est le temps d&lsquo;aller parler à quelqu&lsquo;un</h1>
+            <h1>C'est le temps d'aller parler à quelqu'un</h1>
         </div>
         
 
