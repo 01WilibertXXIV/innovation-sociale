@@ -82,12 +82,11 @@ export default function WebcamComponent() {
         </div>
 
 
-        <div className={`text-4xl font-bold absolute h-full w-full z-[1000] flex justify-center items-center transition-all duration-200 bg-black ${numFaces >= 1 ? 'bg-opacity-100' : 'bg-opacity-0'}`}>
-            <h1>C'est le temps d'aller parler à quelqu'un</h1>
+        <div className={`text-4xl font-bold absolute h-full w-full z-[1000] flex justify-center items-center transition-all duration-200 bg-black ${numFaces >= 1 ? 'opacity-100' : 'opacity-0'}`}>
+            <h1 className={`${numFaces >= 1 ? 'text-opacity-100' : 'text-opacity-0'}`}>C'est le temps d'aller parler à quelqu'un</h1>
         </div>
         
-
-        <video ref={videoRef} autoPlay playsInline style={{ width: '100%', height: 'auto' }} />
+        <video ref={videoRef} autoPlay playsInline className='w-full h-full object-cover'/>
       </div>
     );
 }
